@@ -8,7 +8,7 @@ interface DBConfig {
 }
 
 export const db: DBConfig = {
-    host: process.env.POSTGRES_HOST || "db",
+    host: process.env.POSTGRES_HOST || "localhost",
     database: process.env.POSTGRES_DATABASE  || "ticketpick",
     port: Number(process.env.POSTGRES_PORT) || 5432,
     user: process.env.POSTGRES_USER || "postgres",

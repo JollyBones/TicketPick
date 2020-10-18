@@ -1,0 +1,1 @@
+export { WalletDomain } from "./wallet";

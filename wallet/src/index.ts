@@ -1,7 +1,16 @@
 import express from "express";
+import { json } from "body-parser";
+import compression  from "compression";
+import cors from "cors";
+import helmet from "helmet";
 
 const app = express();
 const PORT = process.env.WALLET_PORT || 8801;
+
+app.use(json());
+app.use(compression());
+app.use(helmet());
+app.use(cors());
 
 app.get("/", async (req, res) => {
    res.sendStatus(200);
