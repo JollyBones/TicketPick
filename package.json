@@ -1,0 +1,14 @@
+{
+  "name": "ticket-services",
+  "version": "1.0.0",
+  "description": "A microservice ticketing solution",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
