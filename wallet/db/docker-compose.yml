@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+    db:
+        container_name: db
+        image: postgres:11.1-alpine
+        ports:
+            - "5432:5432"
+    flyway:
+        container_name: flyway
+        build:
+            context: .
+            dockerfile: flyway.Dockerfile
+        links:
+            - "db"
+        depends_on:
+            - "db"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        volumes:
+            - "./migrations:/opt/migrations"
+            - "./wait-for-db.sh:/opt/scripts/wait-for-db.sh"
