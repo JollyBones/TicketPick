@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.WALLET_PORT || 8801;
 
 app.get("/", (req, res) => {
-    res.send("Hello there Aidan Jolly");
+    res.sendStatus(200);
 });
 
 app.listen(PORT, () => {
