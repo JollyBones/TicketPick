@@ -1,1 +1,1 @@
-export { WalletDomain } from "./wallet";
+export { WalletDomain, WalletReadDomain } from "./wallet";

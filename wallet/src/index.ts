@@ -8,6 +8,8 @@ require('dotenv').config();
 
 import { getPool } from "./db";
 import { healthCheck } from "./healthcheck";
+import { WalletDomain } from "./reader";
+import { walletRoutes } from "./routes";
 
 const app = express();
 const PORT = process.env.WALLET_PORT || 8801;
@@ -25,6 +27,8 @@ app.get("/healthcheck", async (req, res) => {
     const status = await healthCheck(getPool());
     res.send(status);
 });
+
+walletRoutes(app, WalletDomain());
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
