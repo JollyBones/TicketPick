@@ -4,6 +4,11 @@ import compression  from "compression";
 import cors from "cors";
 import helmet from "helmet";
 
+require('dotenv').config();
+
+import { getPool } from "./db";
+import { healthCheck } from "./healthcheck";
+
 const app = express();
 const PORT = process.env.WALLET_PORT || 8801;
 
@@ -14,6 +19,11 @@ app.use(cors());
 
 app.get("/", async (req, res) => {
    res.sendStatus(200);
+});
+
+app.get("/healthcheck", async (req, res) => {
+    const status = await healthCheck(getPool());
+    res.send(status);
 });
 
 app.listen(PORT, () => {
