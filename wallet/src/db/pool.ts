@@ -2,7 +2,7 @@ import { Pool } from "pg";
 import { db } from "./config"; 
 
 const pool = new Pool({
-    host: "localhost",
+    host: db.host,
     user: db.user,
     password: db.password,
     port: db.port,
